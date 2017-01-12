@@ -8,8 +8,13 @@
 #
 ################### Project name and sources #####################
 
-NAME=NanoLibSemihost
-FOUNDATION = /Users/Liam/Eclipse/WorkspaceJan16/Foundation
+NAME=NanoLibSemiHost
+
+#MBP
+#FOUNDATION = /Users/Liam/Eclipse/WorkspaceJan16/Foundation
+
+#MM
+FOUNDATION = /Users/Liam/Documents/LiamsDox/Personal/GeekingOut/SoftDvt/Embedded/EclipseMarsFeb2016/WorkspaceJan16/Foundation
 
 C_SOURCES = $(FOUNDATION)/startup_Nano.S $(FOUNDATION)/semihost.c 	# Enter list of all the C source files here
 S_SOURCES = $(FOUNDATION)/semihostDriver.S 	# Enter list of all the assembler source files here
