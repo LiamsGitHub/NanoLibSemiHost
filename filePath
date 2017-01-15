@@ -1,0 +1,9 @@
+# MBP location
+ROOTDIR = /Users/Liam/Eclipse/
+
+# MM location
+# ROOTDIR = /Users/Liam/Documents/LiamsDox/Personal/GeekingOut/SoftDvt/Embedded/EclipseMarsFeb2016
+
+
+FOUNDATION = $(ROOTDIR)WorkspaceJan16/Foundation
+TOOLS = $(ROOTDIR)gcc-arm-none-eabi-5_2-2015q4/bin/

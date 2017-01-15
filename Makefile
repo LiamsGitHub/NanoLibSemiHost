@@ -7,33 +7,25 @@
 # larger future projects
 #
 ################### Project name and sources #####################
+include filePath
 
 NAME=NanoLibSemiHost
-
-#MBP
-#FOUNDATION = /Users/Liam/Eclipse/WorkspaceJan16/Foundation
-
-#MM
-FOUNDATION = /Users/Liam/Documents/LiamsDox/Personal/GeekingOut/SoftDvt/Embedded/EclipseMarsFeb2016/WorkspaceJan16/Foundation
 
 C_SOURCES = $(FOUNDATION)/startup_Nano.S $(FOUNDATION)/semihost.c 	# Enter list of all the C source files here
 S_SOURCES = $(FOUNDATION)/semihostDriver.S 	# Enter list of all the assembler source files here
 
 OBJECTS = $(C_SOURCES:.c=.o) $(S_SOURCES:.S=.o)
-
-################### File Locations #####################
-include $(FOUNDATION)/filePath
-
-# Compiler/Assembler/Linker Paths
-
-CC=		$(PATH)arm-none-eabi-gcc
-OD =	$(PATH)arm-none-eabi-objdump
-NM =	$(PATH)arm-none-eabi-nm
-AS =	$(PATH)arm-none-eabi-as
-SZ =	$(PATH)arm-none-eabi-size
-
 OBJDIR = Objects2
 INCLUDES = -I./
+
+################### Tool Location #####################
+# Compiler/Assembler/Linker Paths
+
+CC=		$(TOOLS)arm-none-eabi-gcc
+OD =	$(TOOLS)arm-none-eabi-objdump
+NM =	$(TOOLS)arm-none-eabi-nm
+AS =	$(TOOLS)arm-none-eabi-as
+SZ =	$(TOOLS)arm-none-eabi-size
 
 ################### Libraries #####################
 # Library settings
@@ -57,12 +49,13 @@ LDFLAGS=-v -mthumb -mcpu=cortex-m3 $(USE_NANO) -T $(LINKER_SCRIPT) # Use nano em
 ODFLAGS = -h --syms -S
 REMOVE = rm -f
 
+
 ################### Build Steps #####################
 
 all: $(NAME).elf
 
 $(NAME).elf: $(OBJECTS)
-	@ echo "Link:" $^
+	@ echo "Link:"
 	$(CC) $(LDFLAGS)  $^ -o $@
 	/bin/rm -f *.o
 	$(OD) $(ODFLAGS) $@ > $(NAME).lst
@@ -80,6 +73,3 @@ clean:
 	@ echo " "
 	@ echo "Clean up"
 	/bin/rm -f *.o *.elf *.lst
-
-	
-
