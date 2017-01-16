@@ -71,5 +71,5 @@ $(NAME).elf: $(OBJECTS)
 
 clean:
 	@ echo " "
-	@ echo "Clean up"
+	@ echo "Cleaning up"
 	/bin/rm -f *.o *.elf *.lst

@@ -1,8 +1,8 @@
 # MBP location
-ROOTDIR = /Users/Liam/Eclipse/
+#ROOTDIR = /Users/Liam/Eclipse/
 
 # MM location
-# ROOTDIR = /Users/Liam/Documents/LiamsDox/Personal/GeekingOut/SoftDvt/Embedded/EclipseMarsFeb2016
+ROOTDIR = /Users/Liam/Documents/LiamsDox/Personal/GeekingOut/SoftDvt/Embedded/EclipseMarsFeb2016/
 
 
 FOUNDATION = $(ROOTDIR)WorkspaceJan16/Foundation
