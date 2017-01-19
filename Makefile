@@ -58,7 +58,7 @@ all: $(NAME).elf
 $(NAME).elf: $(OBJECTS)
 	@ echo "Link:"
 	$(CC) $(LDFLAGS)  $^ -o $@
-	/bin/rm -f *.o
+	/bin/rm -f -v *.o $(FOUNDATION)/*.o
 	$(OD) $(ODFLAGS) $@ > $(NAME).lst
 	$(SZ) --format=berkeley $@
 	
