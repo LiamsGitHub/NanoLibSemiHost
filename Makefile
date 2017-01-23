@@ -12,8 +12,8 @@ FOUNDATION = $(ROOTDIR)/WorkspaceJan16/Foundation
 TOOLS = $(ROOTDIR)/gcc-arm-none-eabi-5_2-2015q4/bin/
 NAME=NanoLibSemiHost
 
-C_SOURCES = $(FOUNDATION)/startup_std.S $(FOUNDATION)/semihost.c 	# Enter list of all the C source files here
-S_SOURCES = $(FOUNDATION)/semihostDriver.S 	# Enter list of all the assembler source files here
+C_SOURCES = main.c $(FOUNDATION)/semihost.c 	# Enter list of all the C source files here
+S_SOURCES = $(FOUNDATION)/STM32F100C8startup.S $(FOUNDATION)/semihostDriver.S 	# Enter list of all the assembler source files here
 
 OBJECTS = $(C_SOURCES:.c=.o) $(S_SOURCES:.S=.o)
 OBJDIR = Objects2
@@ -37,13 +37,13 @@ SIMPLE = -nostartfiles
 
 ################### GNU Flags #####################
 # Compiler Flags
-CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g -c
+CFLAGS = -mcpu=cortex-m3 -mthumb -Wall -g -c -D NANO
 
 # Assembler Flags
-ASFLAGS = -mcpu=cortex-m3 -mthumb
+ASFLAGS = -mcpu=cortex-m3 -mthumb -D CRT
 
 # Linker Flags 
-LINKER_SCRIPT = $(FOUNDATION)/STM32F100C8v2_std.ld
+LINKER_SCRIPT = $(FOUNDATION)/STM32F100C8.ld
 LDFLAGS=-v -mthumb -mcpu=cortex-m3 $(USE_NANO) -T $(LINKER_SCRIPT) # Use nano embedded libraries
 
 # Other Stuff
